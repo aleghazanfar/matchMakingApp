@@ -1,0 +1,233 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="container-fluid px-1 py-5">
+    <div class="card bg-white">
+        <div class="card-body" id="LookUpBody">
+            <div id="div_Loader" style="padding-left: 400px; top: 500px">
+            </div>
+            <form method="post" enctype="multipart/form-data" id="lookUpForm">
+                <input id="misId" name="misId" type="text" hidden />
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="LooksUpTypeSelect">Select LookUp Type</label>
+                            <select id="LooksUpTypeSelect" name="LooksUpTypeSelect" onchange="lookUpChange()" class="form-control form-control-sm">
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="lookUpNameText">LookUp's Name</label>
+                            <input type="text" class="form-control form-control-sm" id="lookUpNameText" name="lookUpNameText" />
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-info btn-block mt-4">submit</button>
+                         
+
+                    </div>
+                    <div class="col-md-2">
+                                    <button type="button" onclick="clearAllFields()" class="btn btn-primary btn-block mt-4">Clear for New Record</button>
+
+                                </div>
+
+
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-md-11">
+                    <table id="LookUpsTable" class="display" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th>LookUp Id </th>
+                                <th>LookUp Name </th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    @*    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>*@
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            debugger
+            $(document).ajaxStart(function() {
+                $("#overlay").fadeIn(100);
+            });
+            $.validator.setDefaults({
+                submitHandler: function() {
+                    submitDataBtn();
+
+                }
+            });
+            $('#lookUpForm').validate({
+
+                rules: {
+                    LooksUpTypeSelect: 'required',
+                    lookUpNameText: 'required',
+                },
+                messages: {
+                    lookUpNameText: 'Name field is required',
+                    LooksUpTypeSelect: 'please Select Membership Type',
+                },
+
+
+
+                errorElement: 'span',
+                errorPlacement: function(error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                }
+
+            });
+
+            $.ajax({
+                type: "GET",
+                url: "/LookUp/LookUpTypes",
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    var s = '<option value="0">Select LookUp Type</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#LooksUpTypeSelect").html(s);
+                }
+
+            });
+
+            $(document).ajaxComplete(function() {
+                setTimeout(function() {
+                    $("#overlay").fadeOut(100);
+                }, 100);
+            });
+        });
+
+
+        function lookUpChange() {
+
+            loadTableData();
+        }
+
+        function loadTableData() {
+            var Id = $("#LooksUpTypeSelect").val();
+            var url = '/LookUp/getLookUpData/' + Id;
+            $('#LookUpsTable').DataTable().clear();
+            $('#LookUpsTable').DataTable().destroy();
+
+            table = new $('#LookUpsTable').DataTable(
+                {
+                    ajax: {
+                        url: url,
+                        type: "GET",
+                        "dataType": "JSON",
+                        "dataSrc": function(json) {
+                            debugger
+                            json.draw = json.draw;
+                            json.recordsTotal = json.recordsTotal;
+                            json.recordsFiltered = json.recordsFiltered;
+                            json.data = json.data;
+                            var return_data = json;
+                            debugger
+                            return return_data.data;
+                        }
+                    },
+                    searching: false,
+                    columns: [
+                        { data: "id", name: "id" },
+                        { data: "lookUpNames", name: "lookUpNames" },
+                        {
+                            "data": 'id',
+                            "render": function(data) {
+                                return `<div class="w-75 btn-group" role="group">
+                                                                              <a onClick=EditLookUp('${data}') class='btn btn-warning'><i class='fa fa-pen' style="margin-right:5px;" "></i>Edit</a>
+                                                                                 </div> `
+
+                            },
+                        },
+                    ]
+                });
+        }
+
+        function EditLookUp(id) {
+            debugger
+            $.ajax({
+                type: "GET",
+                url: "/LookUp/EditLookUp/" + id,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    $("#lookUpNameText").val(data.lookUpNames);
+                    $("#misId").val(data.id);
+
+                }
+
+            });
+
+        }
+
+        function submitDataBtn() {
+            debugger
+            event.preventDefault();
+            let id = $("#misId").val()
+
+            if (id == '') {
+                id = 0;
+            };
+            let formData = {
+                Id:id ,
+                TypeId: $("#LooksUpTypeSelect").val(),
+                LookUpNames: $("#lookUpNameText").val(),
+            };
+
+            $.ajax({
+                url: '/LookUp/UpSert',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(formData),
+                type: 'POST',
+                success: function(data) {
+                    console.log("RESULT", data);
+                    loadTableData();
+                },
+                error: function(xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message);
+                }
+
+            });
+
+
+        }
+ function clearAllFields() {
+            $('#LookUpBody').find('input:text').val('');
+     $("#LooksUpTypeSelect").val(0);
+        }
+
+    </script>
+
+
+}

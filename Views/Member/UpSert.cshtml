@@ -1,0 +1,641 @@
+﻿@{
+    ViewData["Title"] = "UpSert";
+}
+
+<div class="container-fluid px-1 py-5">
+    <div class="card bg-white" style="margin-top:-30px;">
+        <div id="error"></div>
+        <form method="post" enctype="multipart/form-data" id="memberForm">
+            <div class="card-body">
+                <input id="misId" hidden />
+                <div class="loaderbody" id="loaderbody">
+                    <div class="loader"></div>
+                </div>
+
+                <p class="h4" style="color:darkred">Personel Information</p>
+                <div class="callout callout-danger">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="memberNameText">Name</label>
+                                <input type="text" class="form-control form-control-sm" id="memberNameText" name="memberNameText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="fatherNameText">Father's Name</label>
+                                <input type="text" class="form-control form-control-sm" id="fatherNameText" name="fatherNameText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="genderSelect">Gender</label>
+                                <select id="genderSelect" name="genderSelect" class="form-control form-control-sm">
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="nationalitySelect">Nationality</label>
+                                <select id="nationalitySelect" name="nationalitySelect" class="form-control form-control-sm">
+                                </select>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="motherLanguageSeelct">Mother Language</label>
+                                <select id="motherLanguageSeelct" name="motherLanguageSeelct" class="form-control form-control-sm">
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="maritalStatusSelect">Marital Status</label>
+                                 <select id="maritalStatusSelect" name="maritalStatusSelect" class="form-control form-control-sm">
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="dateOfBirthText">Date Of Birth</label>
+                                <input type="text" class="form-control form-control-sm" id="dateOfBirthText" name="dateOfBirthText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="heightText">Height</label>
+                                <input type="text" class="form-control form-control-sm" id="heightText" name="heightText" />
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="bodyTypeSelect">Body Type</label>
+                                <select id="bodyTypeSelect" name="bodyTypeSelect" class="form-control form-control-sm">
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="complexText">Complex</label>
+                                <input type="text" class="form-control form-control-sm" id="complexText" name="complexText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="qualificationSelect">Qualification</label>
+                                <select id="qualificationSelect" name="qualificationSelect" class="form-control form-control-sm"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="casteSelect">Caste</label>
+                                <select id="casteSelect" name="casteSelect" class="form-control form-control-sm">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="subCasteText">Sub Caste</label>
+                                <input type="text" class="form-control form-control-sm" id="subCasteText" name="subCasteText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="sectSelect">Sect</label>
+                                <select id="sectSelect" name="sectSelect" class="form-control form-control-sm">
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <p class="h4" style="color:darkred">Job Detail</p>
+                <div class="callout callout-warning">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="jobPositionText">Job Position</label>
+                                <input type="text" class="form-control form-control-sm" id="jobPositionText" name="jobPositionText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="monthlyIncomeText">Monthly Income</label>
+                                <input type="text" class="form-control form-control-sm" id="monthlyIncomeText" name="monthlyIncomeText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="natureOfJobText">Nature Of Job</label>
+                                <input type="text" class="form-control form-control-sm" id="natureOfJobText" name="natureOfJobText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="futuerPlanText">Futer Plan</label>
+                                <input type="text" class="form-control form-control-sm" id="futuerPlanText" name="futuerPlanText" />
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <p class="h4" style="color:darkred">Family Detail</p>
+                <div class="callout callout-info">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="fatherOccupationText">Father Occupation</label>
+                                <input type="text" class="form-control form-control-sm" id="fatherOccupationText" name="fatherOccupationText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="motherOccupationText">Mother's Occupation</label>
+                                <input type="text" class="form-control form-control-sm" id="motherOccupationText" name="motherOccupationText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="brothersText">Brothers</label>
+                                <input type="text" class="form-control form-control-sm" id="brothersText" name="brothersText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="sistersText">Sisters</label>
+                                <input type="text" class="form-control form-control-sm" id="sistersText" name="sistersText" />
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="dependNoOfPersonText">Depends No of Persons</label>
+                                <input type="text" class="form-control form-control-sm" id="dependNoOfPersonText" name="dependNoOfPersonText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="marriedSiblingText">Married Sibling</label>
+                                <input type="text" class="form-control form-control-sm" id="marriedSiblingText" name="marriedSiblingText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="kidsDetailText">Kids<span class="mailbox-read-time text-sm">(in case divorce/widow/2nd marriage)</span> </label>
+                                <input type="text" class="form-control form-control-sm" id="kidsDetailText" name="kidsDetailText" />
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <p class="h4" style="color:darkred">Living Detail</p>
+                <div class="callout callout-warning">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="homeDistrictText">Home District</label>
+                                <input type="text" class="form-control form-control-sm" id="homeDistrictText" name="homeDistrictText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="presentResidentText">Present Resident</label>
+                                <input type="text" class="form-control form-control-sm" id="presentResidentText" name="presentResidentText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="houseSelect">House</label>
+                                <select type="text" class="form-control form-control-sm" id="houseSelect" name="houseSelect">
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="contactNoText">Contact No</label>
+                                <input type="text" class="form-control form-control-sm" id="contactNoText" name="contactNoText" />
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="otherPropertiesText">Other Properties</label>
+                                <input type="text" class="form-control form-control-sm" id="otherPropertiesText" name="otherPropertiesText" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="h4" style="color:darkred">Requirement</p>
+                <div class="callout callout-info">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="reqAgeText">Age</label>
+                                <input type="text" class="form-control form-control-sm" id="reqAgeText" name="reqAgeText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="heightText">Height</label>
+                                <input type="text" class="form-control form-control-sm" id="heightText" name="heightText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="reqCasteSelect">Caste</label>
+                                <select id="reqCasteSelect" name="reqCasteSelect" class="form-control form-control-sm">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="reqSectSelect">Sect</label>
+                                <select id="reqSectSelect" name="reqSectSelect" class="form-control form-control-sm">
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="reqMaritalStatusSelect">Marital Status</label>
+                                <select id="reqMaritalStatusSelect" name="reqMaritalStatusSelect" class="form-control form-control-sm">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="reqCityText">City</label>
+                                <input type="text" class="form-control form-control-sm" id="reqCityText" name="reqCityText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="reqCountryText">Country</label>
+                                <input type="text" class="form-control form-control-sm" id="reqCountryText" name="reqCountryText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="reqJobText">Job</label>
+                                <input type="text" class="form-control form-control-sm" id="reqJobText" name="reqJobText" />
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="reqQualificationSelect">Qualification</label>
+                                <select type="text" class="form-control form-control-sm" id="reqQualificationSelect" name="reqQualificationSelect">
+                                    <option>--Select Qualification--</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="reqIncomeText">Income(PKR)</label>
+                                <input type="text" class="form-control form-control-sm" id="reqIncomeText" name="reqIncomeText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="reqAnyOtherText">Any Other</label>
+                                <input type="text" class="form-control form-control-sm" id="reqAnyOtherText" name="reqAnyOtherText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="reqAnyOther2Text">Any Other 2</label>
+                                <input type="text" class="form-control form-control-sm" id="reqAnyOther2Text" name="reqAnyOther2Text" />
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-info btn-block">submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    @*    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>*@
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            debugger
+            $(document).ajaxStart(function() {
+                $("#overlay").fadeIn(100);
+            });
+
+            $.validator.setDefaults({
+                submitHandler: function() {
+                    submitDataBtn();
+
+                }
+            });
+
+            LoadDefaults();
+
+
+            $(document).ajaxComplete(function() {
+                setTimeout(function() {
+                    $("#overlay").fadeOut(100)
+                }, 100);
+            });
+
+        });
+
+        function LoadDefaults() {
+            //Nationality DDL
+            $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+1,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Nationality</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#nationalitySelect").html(s);
+                }
+
+            });
+             //Gender DDL
+            $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+2,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Gender</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#genderSelect").html(s);
+                }
+
+            });
+            //Mother Language DDL
+            $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+3,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Mother Language</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#motherLanguageSeelct").html(s);
+                }
+
+            });
+             //Marital Status DDL
+            $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+4,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Marital Status</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#maritalStatusSelect").html(s);
+                }
+
+            });
+            //Body Type DDL
+            $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+5,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Body Type</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#bodyTypeSelect").html(s);
+                }
+
+            });
+            //Qualification DDL
+            $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+7,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Qualifications</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#maritalStatusSelect").html(s);
+                }
+
+            });
+            //Caste DDL
+            $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+3011,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Caste</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#casteSelect").html(s);
+                }
+
+            });
+             //Sect DDL
+            $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+8,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Sect</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#sectSelect").html(s);
+                }
+
+            });
+            //House DDL
+            $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+9,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select House Type</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#houseSelect").html(s);
+                }
+
+            });
+            //Rquiredment Caste DDL
+             $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+3011,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Caste</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#reqCasteSelect").html(s);
+                }
+
+            });
+            //Rquiredment Sect DDL
+             $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+8,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Sect</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#reqSectSelect").html(s);
+                }
+
+            });
+            //Rquiredment Marital Status DDL
+             $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+8,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Marital Status</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#reqMaritalStatusSelect").html(s);
+                }
+
+            });
+             //Rquiredment Qualification DDL
+             $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+7,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="0">Select Qualification</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#reqQualificationSelect").html(s);
+                }
+
+            });
+        }
+    </script>
+
+}

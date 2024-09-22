@@ -1,0 +1,12 @@
+#ignore modal directory
+Data/*
+#ignore all .conig files
+*.json
+#bin folder igno
+bin/*
+#obj folder ignore
+obj/*
+#www root folder excluded
+wwwroot/*
+#properties
+Properties/*
