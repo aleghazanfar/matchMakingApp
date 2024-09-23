@@ -68,7 +68,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="dateOfBirthText">Date Of Birth</label>
-                                <input type="text" class="form-control form-control-sm" id="dateOfBirthText" name="dateOfBirthText" />
+                                <input type="date" class="form-control form-control-sm" id="dateOfBirthText" name="dateOfBirthText" />
 
                             </div>
                         </div>
@@ -76,7 +76,6 @@
                             <div class="form-group">
                                 <label for="heightText">Height</label>
                                 <input type="text" class="form-control form-control-sm" id="heightText" name="heightText" />
-
                             </div>
                         </div>
 
@@ -92,8 +91,9 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="complexText">Complex</label>
-                                <input type="text" class="form-control form-control-sm" id="complexText" name="complexText" />
+                                <label for="complexSelect">Complex</label>
+                                <select id="complexSelect" name="complexSelect" class="form-control form-control-sm"></select>
+
 
                             </div>
                         </div>
@@ -281,8 +281,8 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="heightText">Height</label>
-                                <input type="text" class="form-control form-control-sm" id="heightText" name="heightText" />
+                                <label for="reqheightText">Height</label>
+                                <input type="text" class="form-control form-control-sm" id="reqheightText" name="reqheightText" />
 
                             </div>
                         </div>
@@ -391,16 +391,176 @@
     <script>
         $(document).ready(function() {
             debugger
-            $(document).ajaxStart(function() {
-                $("#overlay").fadeIn(100);
-            });
-
             $.validator.setDefaults({
                 submitHandler: function() {
                     submitDataBtn();
 
                 }
             });
+
+             $('#memberForm').validate({
+
+                rules: {
+                    memberNameText: 'required',
+                    fatherNameText: 'required',
+                    genderSelect: 'required',
+                    nationalitySelect: 'required',
+                    motherLanguageSeelct: 'required',
+                    maritalStatusSelect: 'required',
+                    dateOfBirthText: 'required',
+                     heightText: {
+                     required:true,
+                     number:true
+                     },
+                    bodyTypeSelect: 'required',
+                    complexSelect: 'required',
+                    qualificationSelect: 'required',
+                    casteSelect: 'required',
+                    subCasteText: 'required',
+                    sectSelect: 'required',
+                    jobPositionText: 'required',
+                    monthlyIncomeText: {
+                     required:true,
+                     digits:true
+                     },
+                    natureOfJobText: 'required',
+                    futuerPlanText: 'required',
+                    fatherOccupationText: 'required',
+                    motherOccupationText: 'required',
+                     brothersText: {
+                     required:true,
+                     digits:true
+                     },
+                     sistersText: {
+                     required:true,
+                     digits:true
+                     },
+                    dependNoOfPersonText: {
+                     required:true,
+                     digits:true
+                     },
+                    marriedSiblingText: {
+                     required:true,
+                     digits:true
+                     },
+                    homeDistrictText: 'required',
+                    presentResidentText: 'required',
+                    houseSelect: 'required',
+                    contactNoText: {
+                     required:true,
+                     digits:true
+                     },
+                    otherPropertiesText: 'required',
+                     reqAgeText: {
+                     required:true,
+                     digits:true
+                     },
+                    reqheightText: {
+                     required:true,
+                     number:true
+                     },
+                    reqCasteSelect: 'required',
+                    reqSectSelect: 'required',
+                    reqMaritalStatusSelect: 'required',
+                    reqCityText: 'required',
+                    reqCountryText: 'required',
+                    reqJobText: 'required',
+                    reqQualificationSelect: 'required',
+                    reqIncomeText: 'required',
+                    
+
+                },
+                messages: {
+                    memberNameText: 'Member Name is requred Field',
+                    fatherNameText: 'Member Father Name is required Field',
+                    genderSelect: 'Please seelct member Gender',
+                    nationalitySelect: 'Please Select Nationality',
+                    motherLanguageSeelct: 'Please Select Mother Language',
+                    maritalStatusSelect: 'Please select Marital Status',
+                    dateOfBirthText: 'Enter Date of Birth',
+                    heightText: {
+                        required: 'Enter Height of Member',
+                        number:'Please enter only decimal value(ie 5.9)'
+                    },
+                    bodyTypeSelect: 'Please Select Body Type',
+                    complexSelect: 'Please Select Complex',
+                    qualificationSelect: 'Please Select Qualification',
+                    casteSelect: 'Please Select Caste',
+                    subCasteText: 'Enter sub Caste',
+                    sectSelect: 'Please Select Sect',
+                    jobPositionText: 'Enter Job Position',
+                     monthlyIncomeText: {
+                        required: 'Enter Monthly Income in PKR',
+                        digit:'Please enter Amount(Numbers) in PKR'
+                    },
+                    natureOfJobText: 'Enter Nature of job',
+                    futuerPlanText: 'Enter future plan',
+                    fatherOccupationText: 'Enter Father occupation',
+                    motherOccupationText: 'Enter Mother occupation',
+                     brothersText: {
+                        required: 'enter No. of brothers',
+                        digits:'Number of brother(s) should be integer value'
+                    },
+                    sistersText: {
+                        required: 'enter No. Of sisters',
+                        digits:'Number of sister(s) should be integer value'
+                    },
+                    dependNoOfPersonText: {
+                        required:'enter No. of persons dependent',
+                        digits:'dependent Number of person(s) should be integer value'
+                    },
+                    marriedSiblingText: {
+                        required: 'enter No. of married sibling',
+                        digits:'married sibling should be integer value'
+                    },
+                    homeDistrictText: 'enter Home district',
+                    presentResidentText: 'enter presiden Address',
+                    houseSelect: 'Please select House Type',
+                    contactNoText: {
+                        required:'enter contact Number',
+                        digits:'contact Number should be integer value'
+                    },
+                    otherPropertiesText: 'enter other properties',
+                    reqAgeText: {
+                        required:'enter requirement Age',
+                        digits:'age should be integer value'
+                    },
+                    reqheightText: {
+                        required:'enter requirement height',
+                        number:'requirement heigh should be dicimal value(ie 5.9)'
+                    },
+                    reqCasteSelect: 'Please requirement Caste',
+                    reqSectSelect: 'Please select requirement sect',
+                    reqMaritalStatusSelect: 'Please select requirement Marital Status',
+                    reqCityText: 'enter requirement city',
+                    reqCountryText: 'enter requirement country',
+                    reqJobText: 'enter requirement job',
+                    reqQualificationSelect: 'enter requirement Qualification',
+                    reqIncomeText: 'enter requirement income',
+                    
+
+                },
+
+
+
+                errorElement: 'span',
+                errorPlacement: function(error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                }
+
+            });
+
+            $(document).ajaxStart(function() {
+                $("#overlay").fadeIn(100);
+            });
+
 
             LoadDefaults();
 
@@ -423,7 +583,7 @@
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Nationality</option>';
+                    var s = '<option value="">Select Nationality</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -440,7 +600,7 @@
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Gender</option>';
+                    var s = '<option value="">Select Gender</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -457,7 +617,7 @@
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Mother Language</option>';
+                    var s = '<option value="">Select Mother Language</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -474,7 +634,7 @@
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Marital Status</option>';
+                    var s = '<option value="">Select Marital Status</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -491,11 +651,28 @@
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Body Type</option>';
+                    var s = '<option value="">Select Body Type</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
                     $("#bodyTypeSelect").html(s);
+                }
+
+            });
+            //Complex DDL
+            $.ajax({
+                type: "GET",
+                url: "/Member/LookUpTypes/"+6,
+                data: "{}",
+
+                success: function(data) {
+                    console.log(data)
+                    console.log(data[0].id)
+                    var s = '<option value="">Select Complex</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+                    $("#complexSelect").html(s);
                 }
 
             });
@@ -508,24 +685,24 @@
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Qualifications</option>';
+                    var s = '<option value="">Select Qualifications</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
-                    $("#maritalStatusSelect").html(s);
+                    $("#qualificationSelect").html(s);
                 }
 
             });
             //Caste DDL
             $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+3011,
+                url: "/Member/LookUpTypes/"+10,
                 data: "{}",
 
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Caste</option>';
+                    var s = '<option value="">Select Caste</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -542,7 +719,7 @@
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Sect</option>';
+                    var s = '<option value="">Select Sect</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -559,7 +736,7 @@
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select House Type</option>';
+                    var s = '<option value="">Select House Type</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -570,13 +747,13 @@
             //Rquiredment Caste DDL
              $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+3011,
+                url: "/Member/LookUpTypes/"+10,
                 data: "{}",
 
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Caste</option>';
+                    var s = '<option value="">Select Caste</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -593,7 +770,7 @@
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Sect</option>';
+                    var s = '<option value="">Select Sect</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -604,13 +781,13 @@
             //Rquiredment Marital Status DDL
              $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+8,
+                url: "/Member/LookUpTypes/"+4,
                 data: "{}",
 
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Marital Status</option>';
+                    var s = '<option value="">Select Marital Status</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -627,7 +804,7 @@
                 success: function(data) {
                     console.log(data)
                     console.log(data[0].id)
-                    var s = '<option value="0">Select Qualification</option>';
+                    var s = '<option value="">Select Qualification</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -635,6 +812,12 @@
                 }
 
             });
+        }
+
+        function submitDataBtn() {
+            event.preventDefault();
+            alert('submitt button is clicked....');
+
         }
     </script>
 
