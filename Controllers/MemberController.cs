@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RishtaWebApp.Data;
+using RishtaWebApp.ViewModels;
 
 namespace RishtaWebApp.Controllers
 {
@@ -16,7 +17,17 @@ namespace RishtaWebApp.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpPost]
+        public async Task<JsonResult> InsertStudent(MemberFormViewModel memberObj)
+        {
+            JsonResponseViewModel modal = new JsonResponseViewModel();
+            modal.ResponseCode = 0;
+            modal.ResponseMessage = "Api End working fine";
+
+            return  Json(modal);
+        }
+
+            [HttpGet]
         public IActionResult UpSert(int? id)
         {
             return View();

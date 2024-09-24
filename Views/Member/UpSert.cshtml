@@ -13,7 +13,7 @@
                 </div>
 
                 <p class="h4" style="color:darkred">Personel Information</p>
-                <div class="callout callout-danger">
+                <div class="callout callout-danger bg-light">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
@@ -60,7 +60,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="maritalStatusSelect">Marital Status</label>
-                                 <select id="maritalStatusSelect" name="maritalStatusSelect" class="form-control form-control-sm">
+                                <select id="maritalStatusSelect" name="maritalStatusSelect" class="form-control form-control-sm">
                                 </select>
 
                             </div>
@@ -133,7 +133,7 @@
                 </div>
 
                 <p class="h4" style="color:darkred">Job Detail</p>
-                <div class="callout callout-warning">
+                <div class="callout callout-warning bg-light">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
@@ -168,7 +168,7 @@
 
                 </div>
                 <p class="h4" style="color:darkred">Family Detail</p>
-                <div class="callout callout-info">
+                <div class="callout callout-info bg-light">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
@@ -226,7 +226,7 @@
 
                 </div>
                 <p class="h4" style="color:darkred">Living Detail</p>
-                <div class="callout callout-warning">
+                <div class="callout callout-warning bg-light">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
@@ -270,7 +270,7 @@
                 </div>
 
                 <p class="h4" style="color:darkred">Requirement</p>
-                <div class="callout callout-info">
+                <div class="callout callout-info bg-light">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
@@ -398,7 +398,7 @@
                 }
             });
 
-             $('#memberForm').validate({
+            $('#memberForm').validate({
 
                 rules: {
                     memberNameText: 'required',
@@ -408,10 +408,10 @@
                     motherLanguageSeelct: 'required',
                     maritalStatusSelect: 'required',
                     dateOfBirthText: 'required',
-                     heightText: {
-                     required:true,
-                     number:true
-                     },
+                    heightText: {
+                        required: true,
+                        number: true
+                    },
                     bodyTypeSelect: 'required',
                     complexSelect: 'required',
                     qualificationSelect: 'required',
@@ -420,45 +420,45 @@
                     sectSelect: 'required',
                     jobPositionText: 'required',
                     monthlyIncomeText: {
-                     required:true,
-                     digits:true
-                     },
+                        required: true,
+                        digits: true
+                    },
                     natureOfJobText: 'required',
                     futuerPlanText: 'required',
                     fatherOccupationText: 'required',
                     motherOccupationText: 'required',
-                     brothersText: {
-                     required:true,
-                     digits:true
-                     },
-                     sistersText: {
-                     required:true,
-                     digits:true
-                     },
+                    brothersText: {
+                        required: true,
+                        digits: true
+                    },
+                    sistersText: {
+                        required: true,
+                        digits: true
+                    },
                     dependNoOfPersonText: {
-                     required:true,
-                     digits:true
-                     },
+                        required: true,
+                        digits: true
+                    },
                     marriedSiblingText: {
-                     required:true,
-                     digits:true
-                     },
+                        required: true,
+                        digits: true
+                    },
                     homeDistrictText: 'required',
                     presentResidentText: 'required',
                     houseSelect: 'required',
                     contactNoText: {
-                     required:true,
-                     digits:true
-                     },
+                        required: true,
+                        digits: true
+                    },
                     otherPropertiesText: 'required',
-                     reqAgeText: {
-                     required:true,
-                     digits:true
-                     },
+                    reqAgeText: {
+                        required: true,
+                        digits: true
+                    },
                     reqheightText: {
-                     required:true,
-                     number:true
-                     },
+                        required: true,
+                        number: true
+                    },
                     reqCasteSelect: 'required',
                     reqSectSelect: 'required',
                     reqMaritalStatusSelect: 'required',
@@ -467,7 +467,7 @@
                     reqJobText: 'required',
                     reqQualificationSelect: 'required',
                     reqIncomeText: 'required',
-                    
+
 
                 },
                 messages: {
@@ -480,7 +480,7 @@
                     dateOfBirthText: 'Enter Date of Birth',
                     heightText: {
                         required: 'Enter Height of Member',
-                        number:'Please enter only decimal value(ie 5.9)'
+                        number: 'Please enter only decimal value(ie 5.9)'
                     },
                     bodyTypeSelect: 'Please Select Body Type',
                     complexSelect: 'Please Select Complex',
@@ -489,45 +489,45 @@
                     subCasteText: 'Enter sub Caste',
                     sectSelect: 'Please Select Sect',
                     jobPositionText: 'Enter Job Position',
-                     monthlyIncomeText: {
+                    monthlyIncomeText: {
                         required: 'Enter Monthly Income in PKR',
-                        digit:'Please enter Amount(Numbers) in PKR'
+                        digit: 'Please enter Amount(Numbers) in PKR'
                     },
                     natureOfJobText: 'Enter Nature of job',
                     futuerPlanText: 'Enter future plan',
                     fatherOccupationText: 'Enter Father occupation',
                     motherOccupationText: 'Enter Mother occupation',
-                     brothersText: {
+                    brothersText: {
                         required: 'enter No. of brothers',
-                        digits:'Number of brother(s) should be integer value'
+                        digits: 'Number of brother(s) should be integer value'
                     },
                     sistersText: {
                         required: 'enter No. Of sisters',
-                        digits:'Number of sister(s) should be integer value'
+                        digits: 'Number of sister(s) should be integer value'
                     },
                     dependNoOfPersonText: {
-                        required:'enter No. of persons dependent',
-                        digits:'dependent Number of person(s) should be integer value'
+                        required: 'enter No. of persons dependent',
+                        digits: 'dependent Number of person(s) should be integer value'
                     },
                     marriedSiblingText: {
                         required: 'enter No. of married sibling',
-                        digits:'married sibling should be integer value'
+                        digits: 'married sibling should be integer value'
                     },
                     homeDistrictText: 'enter Home district',
                     presentResidentText: 'enter presiden Address',
                     houseSelect: 'Please select House Type',
                     contactNoText: {
-                        required:'enter contact Number',
-                        digits:'contact Number should be integer value'
+                        required: 'enter contact Number',
+                        digits: 'contact Number should be integer value'
                     },
                     otherPropertiesText: 'enter other properties',
                     reqAgeText: {
-                        required:'enter requirement Age',
-                        digits:'age should be integer value'
+                        required: 'enter requirement Age',
+                        digits: 'age should be integer value'
                     },
                     reqheightText: {
-                        required:'enter requirement height',
-                        number:'requirement heigh should be dicimal value(ie 5.9)'
+                        required: 'enter requirement height',
+                        number: 'requirement heigh should be dicimal value(ie 5.9)'
                     },
                     reqCasteSelect: 'Please requirement Caste',
                     reqSectSelect: 'Please select requirement sect',
@@ -537,7 +537,7 @@
                     reqJobText: 'enter requirement job',
                     reqQualificationSelect: 'enter requirement Qualification',
                     reqIncomeText: 'enter requirement income',
-                    
+
 
                 },
 
@@ -577,7 +577,7 @@
             //Nationality DDL
             $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+1,
+                url: "/Member/LookUpTypes/" + 1,
                 data: "{}",
 
                 success: function(data) {
@@ -591,10 +591,10 @@
                 }
 
             });
-             //Gender DDL
+            //Gender DDL
             $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+2,
+                url: "/Member/LookUpTypes/" + 2,
                 data: "{}",
 
                 success: function(data) {
@@ -611,7 +611,7 @@
             //Mother Language DDL
             $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+3,
+                url: "/Member/LookUpTypes/" + 3,
                 data: "{}",
 
                 success: function(data) {
@@ -625,10 +625,10 @@
                 }
 
             });
-             //Marital Status DDL
+            //Marital Status DDL
             $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+4,
+                url: "/Member/LookUpTypes/" + 4,
                 data: "{}",
 
                 success: function(data) {
@@ -645,7 +645,7 @@
             //Body Type DDL
             $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+5,
+                url: "/Member/LookUpTypes/" + 5,
                 data: "{}",
 
                 success: function(data) {
@@ -662,7 +662,7 @@
             //Complex DDL
             $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+6,
+                url: "/Member/LookUpTypes/" + 6,
                 data: "{}",
 
                 success: function(data) {
@@ -679,7 +679,7 @@
             //Qualification DDL
             $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+7,
+                url: "/Member/LookUpTypes/" + 7,
                 data: "{}",
 
                 success: function(data) {
@@ -696,7 +696,7 @@
             //Caste DDL
             $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+10,
+                url: "/Member/LookUpTypes/" + 10,
                 data: "{}",
 
                 success: function(data) {
@@ -710,10 +710,10 @@
                 }
 
             });
-             //Sect DDL
+            //Sect DDL
             $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+8,
+                url: "/Member/LookUpTypes/" + 8,
                 data: "{}",
 
                 success: function(data) {
@@ -730,7 +730,7 @@
             //House DDL
             $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+9,
+                url: "/Member/LookUpTypes/" + 9,
                 data: "{}",
 
                 success: function(data) {
@@ -745,9 +745,9 @@
 
             });
             //Rquiredment Caste DDL
-             $.ajax({
+            $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+10,
+                url: "/Member/LookUpTypes/" + 10,
                 data: "{}",
 
                 success: function(data) {
@@ -762,9 +762,9 @@
 
             });
             //Rquiredment Sect DDL
-             $.ajax({
+            $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+8,
+                url: "/Member/LookUpTypes/" + 8,
                 data: "{}",
 
                 success: function(data) {
@@ -779,9 +779,9 @@
 
             });
             //Rquiredment Marital Status DDL
-             $.ajax({
+            $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+4,
+                url: "/Member/LookUpTypes/" + 4,
                 data: "{}",
 
                 success: function(data) {
@@ -795,10 +795,10 @@
                 }
 
             });
-             //Rquiredment Qualification DDL
-             $.ajax({
+            //Rquiredment Qualification DDL
+            $.ajax({
                 type: "GET",
-                url: "/Member/LookUpTypes/"+7,
+                url: "/Member/LookUpTypes/" + 7,
                 data: "{}",
 
                 success: function(data) {
@@ -816,8 +816,20 @@
 
         function submitDataBtn() {
             event.preventDefault();
-            alert('submitt button is clicked....');
+            $.ajax({
+                type: 'POST',
+                url: '/Member/InsertStudent',
+                data: {},
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function(r) {
 
+                    console.log("RESULT", r);
+
+                }
+
+            });
         }
     </script>
 
