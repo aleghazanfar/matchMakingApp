@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RishtaWebApp.Data;
 
@@ -11,9 +12,10 @@ using RishtaWebApp.Data;
 namespace RishtaWebApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240926124412_AddNewTable")]
+    partial class AddNewTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +43,7 @@ namespace RishtaWebApp.Migrations
                     b.ToTable("LookUps");
                 });
 
-            modelBuilder.Entity("RishtaWebApp.Models.PersonDetail", b =>
+            modelBuilder.Entity("RishtaWebApp.Models.MemberDetail", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int");
@@ -76,14 +78,11 @@ namespace RishtaWebApp.Migrations
                     b.Property<int>("DependsSibling")
                         .HasColumnType("int");
 
-                    b.Property<string>("FatherOccupation")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("FatherOccupationId")
+                        .HasColumnType("int");
 
                     b.Property<string>("FuturePlans")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GenderId")
-                        .HasColumnType("int");
 
                     b.Property<decimal>("Height")
                         .HasColumnType("decimal(18,2)");
@@ -115,8 +114,8 @@ namespace RishtaWebApp.Migrations
                     b.Property<int>("MotherLanguageId")
                         .HasColumnType("int");
 
-                    b.Property<string>("MotherOccupation")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("MotherOccupationId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -125,9 +124,6 @@ namespace RishtaWebApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("NatureOfJob")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OtherProperties")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Parantage")
@@ -140,9 +136,6 @@ namespace RishtaWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ReqCasteId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ReqHeight")
                         .HasColumnType("int");
 
                     b.Property<int>("ReqMaritalStatusId")
@@ -166,12 +159,9 @@ namespace RishtaWebApp.Migrations
                     b.Property<int>("Sisters")
                         .HasColumnType("int");
 
-                    b.Property<string>("SubCaste")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("PersonDetails");
+                    b.ToTable("MemberDetails");
                 });
 
             modelBuilder.Entity("RishtaWebApp.Models.PersonOrg", b =>

@@ -1,0 +1,89 @@
+﻿<div class="container-fluid px-1 py-5">
+    <div class="card bg-white" style="margin-top:-30px;">
+        <div id="error"></div>
+        <form method="post" enctype="multipart/form-data" id="memberForm">
+            <div class="card-body">
+                <input id="misId" hidden />
+                <div class="loaderbody" id="loaderbody">
+                    <div class="loader"></div>
+                </div>
+
+                <p class="h4" style="color:darkred">Personel Information</p>
+                <div class="callout callout-danger bg-light">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="memberNameText">Name</label>
+                                <input type="text" class="form-control form-control-sm" id="memberNameText" name="memberNameText" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="fatherNameText">Father's Name</label>
+                                <input type="text" class="form-control form-control-sm" id="fatherNameText" name="fatherNameText" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-6">
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-info btn-block">submit</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    @*    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>*@
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            debugger
+            $.validator.setDefaults({
+                submitHandler: function() {
+                    submitDataBtn();
+
+                }
+            });
+
+
+        });
+
+     
+
+        function submitDataBtn() {
+            event.preventDefault();
+            var data = {
+                Id: 10,
+                Name: $('#memberNameText').val(),
+                Parantage: $('#fatherNameText').val(),
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/Member/NewMemberInsert',
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                processData: false,
+                success: function(r) {
+                    console.log("RESULT", r);
+                }
+            });
+        }
+    </script>
+
+}

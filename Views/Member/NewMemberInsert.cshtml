@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-sm" id="misIdText" hidden />
+                                <input type="text" class="form-control form-control-sm" id="misIdText"  />
 
                             </div>
                         </div>
@@ -336,8 +336,8 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="reqNationalitySelect">Country</label>
-                                <select type="text" class="form-control form-control-sm" id="reqNationalitySelect" name="reqNationalitySelect"></select>
+                                <label for="reqCountryText">Country</label>
+                                <input type="text" class="form-control form-control-sm" id="reqCountryText" name="reqCountryText" />
 
                             </div>
                         </div>
@@ -419,69 +419,7 @@
                     memberNameText: 'required',
                     fatherNameText: 'required',
                     genderSelect: 'required',
-                    nationalitySelect: 'required',
-                    motherLanguageSeelct: 'required',
-                    maritalStatusSelect: 'required',
-                    dateOfBirthText: 'required',
-                    heightText: {
-                        required: true,
-                        number: true
-                    },
-                    bodyTypeSelect: 'required',
-                    complexSelect: 'required',
-                    qualificationSelect: 'required',
-                    casteSelect: 'required',
-                    subCasteText: 'required',
-                    sectSelect: 'required',
-                    jobPositionText: 'required',
-                    monthlyIncomeText: {
-                        required: true,
-                        digits: true
-                    },
-                    natureOfJobText: 'required',
-                    futuerPlanText: 'required',
-                    fatherOccupationText: 'required',
-                    motherOccupationText: 'required',
-                    brothersText: {
-                        required: true,
-                        digits: true
-                    },
-                    sistersText: {
-                        required: true,
-                        digits: true
-                    },
-                    dependNoOfPersonText: {
-                        required: true,
-                        digits: true
-                    },
-                    marriedSiblingText: {
-                        required: true,
-                        digits: true
-                    },
-                    homeDistrictText: 'required',
-                    presentResidentText: 'required',
-                    houseSelect: 'required',
-                    contactNoText: {
-                        required: true,
-                        digits: true
-                    },
-                    otherPropertiesText: 'required',
-                    reqAgeText: {
-                        required: true,
-                        digits: true
-                    },
-                    reqheightText: {
-                        required: true,
-                        number: true
-                    },
-                    reqCasteSelect: 'required',
-                    reqSectSelect: 'required',
-                    reqMaritalStatusSelect: 'required',
-                    reqCityText: 'required',
-                    reqCountryText: 'required',
-                    reqJobText: 'required',
-                    reqQualificationSelect: 'required',
-                    reqIncomeText: 'required',
+                   
 
 
                 },
@@ -489,69 +427,7 @@
                     memberNameText: 'Member Name is requred Field',
                     fatherNameText: 'Member Father Name is required Field',
                     genderSelect: 'Please seelct member Gender',
-                    nationalitySelect: 'Please Select Nationality',
-                    motherLanguageSeelct: 'Please Select Mother Language',
-                    maritalStatusSelect: 'Please select Marital Status',
-                    dateOfBirthText: 'Enter Date of Birth',
-                    heightText: {
-                        required: 'Enter Height of Member',
-                        number: 'Please enter only decimal value(ie 5.9)'
-                    },
-                    bodyTypeSelect: 'Please Select Body Type',
-                    complexSelect: 'Please Select Complex',
-                    qualificationSelect: 'Please Select Qualification',
-                    casteSelect: 'Please Select Caste',
-                    subCasteText: 'Enter sub Caste',
-                    sectSelect: 'Please Select Sect',
-                    jobPositionText: 'Enter Job Position',
-                    monthlyIncomeText: {
-                        required: 'Enter Monthly Income in PKR',
-                        digit: 'Please enter Amount(Numbers) in PKR'
-                    },
-                    natureOfJobText: 'Enter Nature of job',
-                    futuerPlanText: 'Enter future plan',
-                    fatherOccupationText: 'Enter Father occupation',
-                    motherOccupationText: 'Enter Mother occupation',
-                    brothersText: {
-                        required: 'enter No. of brothers',
-                        digits: 'Number of brother(s) should be integer value'
-                    },
-                    sistersText: {
-                        required: 'enter No. Of sisters',
-                        digits: 'Number of sister(s) should be integer value'
-                    },
-                    dependNoOfPersonText: {
-                        required: 'enter No. of persons dependent',
-                        digits: 'dependent Number of person(s) should be integer value'
-                    },
-                    marriedSiblingText: {
-                        required: 'enter No. of married sibling',
-                        digits: 'married sibling should be integer value'
-                    },
-                    homeDistrictText: 'enter Home district',
-                    presentResidentText: 'enter presiden Address',
-                    houseSelect: 'Please select House Type',
-                    contactNoText: {
-                        required: 'enter contact Number',
-                        digits: 'contact Number should be integer value'
-                    },
-                    otherPropertiesText: 'enter other properties',
-                    reqAgeText: {
-                        required: 'enter requirement Age',
-                        digits: 'age should be integer value'
-                    },
-                    reqheightText: {
-                        required: 'enter requirement height',
-                        number: 'requirement heigh should be dicimal value(ie 5.9)'
-                    },
-                    reqCasteSelect: 'Please requirement Caste',
-                    reqSectSelect: 'Please select requirement sect',
-                    reqMaritalStatusSelect: 'Please select requirement Marital Status',
-                    reqCityText: 'enter requirement city',
-                    reqCountryText: 'enter requirement country',
-                    reqJobText: 'enter requirement job',
-                    reqQualificationSelect: 'enter requirement Qualification',
-                    reqIncomeText: 'enter requirement income',
+                   
 
 
                 },
@@ -599,7 +475,7 @@
                     var currentYear = (new Date).getFullYear();
                     var vRegistration = currentYear + "-GRC-" + data;
                     $("#registrationNoText").val(vRegistration);
-                    $("#misIdText").val(data);
+                    $("#misIdText").val(vRegistration);
                 }
 
             });
@@ -617,22 +493,6 @@
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
                     $("#nationalitySelect").html(s);
-                }
-
-            });
-
-            //Requirement Natinality
-            $.ajax({
-                type: "GET",
-                url: "/Member/LookUpTypes/" + 1,
-                data: "{}",
-
-                success: function(data) {
-                    var s = '<option value="">Select Nationality</option>';
-                    for (var i = 0; i < data.length; i++) {
-                        s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
-                    }
-                    $("#reqNationalitySelect").html(s);
                 }
 
             });
@@ -836,51 +696,13 @@
         function submitDataBtn() {
             event.preventDefault();
             var data = {
-                Id: $('#misIdText').val(),
-                // Id: 84,
+                Id: 10,
                 Name: $('#memberNameText').val(),
                 Parantage: $('#fatherNameText').val(),
-                GenderId: $('#genderSelect').val(),
-                NationalityId: $('#nationalitySelect').val(),
-                MotherLanguageId: $('#motherLanguageSeelct').val(),
-                MaritalStatusId: $('#maritalStatusSelect').val(),
-                DateOfBirth: $('#dateOfBirthText').val(),
-                Height: $('#heightText').val(),
-                BodyTypeId: $('#bodyTypeSelect').val(),
-                ComplexId: $('#complexSelect').val(),
-                QualificationId: $('#qualificationSelect').val(),
-                CasteId: $('#casteSelect').val(),
-                SubCaste: $('#subCasteText').val(),
-                SectId: $('#sectSelect').val(),
-                JobPosition: $('#jobPositionText').val(),
-                MonthlyIncome: $('#monthlyIncomeText').val(),
-                NatureOfJob: $('#natureOfJobText').val(),
-                FuturePlans: $('#futuerPlanText').val(),
-                FatherOccupation: $('#fatherOccupationText').val(),
-                MotherOccupation: $('#fatherOccupationText').val(),
-                Brothers: $('#brothersText').val(),
-                Sisters: $('#sistersText').val(),
-                DependsSibling: $('#dependNoOfPersonText').val(),
-                BrSisMarried: $('#marriedSiblingText').val(),
-                KidsDetail: $('#kidsDetailText').val(),
-                HomeDistricts: $('#homeDistrictText').val(),
-                Residence: $('#presentResidentText').val(),
-                HouseId: $('#houseSelect').val(),
-                Contact: $('#contactNoText').val(),
-                OtherProperties: $('#otherPropertiesText').val(),
-                Age: $('#reqAgeText').val(),
-                ReqHeight: $('#reqheightText').val(),
-                ReqCasteId: $('#reqCasteSelect').val(),
-                ReqSectId: $('#reqSectSelect').val(),
-                ReqMaritalStatusId: $('#reqMaritalStatusSelect').val(),
-                City: $('#reqCityText').val(),
-                ReqNationalityId: $('#reqNationalitySelect').val(),
-                Job: $('#reqJobText').val(),
-                ReqQualificationId: $('#reqQualificationSelect').val(),
-                Income: $('#reqIncomeText').val(),
+                 GenderId: $('#genderSelect').val(),
+                
 
             };
-            console.log(data);
             $.ajax({
                 type: 'POST',
                 url: '/Member/InsertMemberDetail',

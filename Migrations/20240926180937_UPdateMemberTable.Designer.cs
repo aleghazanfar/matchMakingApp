@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RishtaWebApp.Data;
 
@@ -11,9 +12,10 @@ using RishtaWebApp.Data;
 namespace RishtaWebApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240926180937_UPdateMemberTable")]
+    partial class UPdateMemberTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +43,7 @@ namespace RishtaWebApp.Migrations
                     b.ToTable("LookUps");
                 });
 
-            modelBuilder.Entity("RishtaWebApp.Models.PersonDetail", b =>
+            modelBuilder.Entity("RishtaWebApp.Models.MemberDetail", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int");
@@ -167,11 +169,12 @@ namespace RishtaWebApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SubCaste")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("PersonDetails");
+                    b.ToTable("MemberDetails");
                 });
 
             modelBuilder.Entity("RishtaWebApp.Models.PersonOrg", b =>
