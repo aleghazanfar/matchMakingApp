@@ -1,0 +1,93 @@
+﻿
+    @await Html.PartialAsync("_Profile")
+
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+            debugger
+            
+            //$(document).ajaxStart(function() {
+            //    $("#overlay").fadeIn(100);
+            //});
+            LoadDefaults();
+            
+            //$(document).ajaxComplete(function() {
+            //    setTimeout(function() {
+            //        $("#overlay").fadeOut(100)
+            //    }, 100);
+            //});
+
+        });
+
+        function LoadDefaults() {
+             const searchParams = new URLSearchParams(window.location.search);
+            var Id = searchParams.get('vId');
+            debugger
+            //Nationality DDL
+            $.ajax({
+                type: "GET",
+                url: "/Member/MemberProfile/" + Id,
+                data: "{}",
+                async: false,
+                success: function(data) {
+                    console.log(data);
+                    //Personnel Iformation
+                        $('#misIdText').val(data.id);
+                        $('#registrationNoText').val(data.registrationNo);
+                        $('#memberNameText').val(data.name);
+                        $('#fatherNameText').val(data.parantage);
+                        $('#genderSelect').val(data.gender);
+                        $('#nationalitySelect').val(data.nationality);
+                        $('#motherLanguageSeelct').val(data.motherLanguage);
+                        $('#maritalStatusSelect').val(data.maritalStatus);
+                        $('#dateOfBirthText').val(data.dateOfBirth);
+                        $('#heightText').val(data.height);
+                        $('#bodyTypeSelect').val(data.bodytype);
+                        $('#complexSelect').val(data.complex);
+                        $('#qualificationSelect').val(data.qualification);
+                        $('#casteSelect').val(data.caste);
+                        $('#subCasteText').val(data.subCaste);
+                        $('#sectSelect ').val(data.sect);
+                       //Job Detail
+                        $('#jobPositionText ').val(data.jobPosition);
+                        $('#monthlyIncomeText ').val(data.monthlyIncome);
+                        $('#natureOfJobText ').val(data.natureOfJob);
+                        $('#futuerPlanText ').val(data.futurePlans);
+                        //family Detail
+                        $('#fatherOccupationText ').val(data.fatherOccupation);
+                        $('#motherOccupationText ').val(data.motherOccupation);
+                        $('#brothersText ').val(data.brothers);
+                        $('#sistersText ').val(data.sisters);
+                        $('#dependNoOfPersonText ').val(data.dependsSibling);
+                        $('#marriedSiblingText ').val(data.brSisMarried);
+                        $('#kidsDetailText ').val(data.kidsDetail);
+                        //Living Detail
+                        $('#homeDistrictText ').val(data.homeDistricts);
+                        $('#presentResidentText ').val(data.residence);
+                        $('#houseSelect ').val(data.house);
+                        $('#contactNoText ').val(data.contact);
+                        $('#otherPropertiesText ').val(data.otherProperties);
+                        //Requirement
+                        $('#reqAgeText ').val(data.age);
+                        $('#reqheightText ').val(data.reqHeight);
+                        $('#reqCasteSelect ').val(data.reqCaste);
+                        $('#reqSectSelect ').val(data.reqSect);
+                        $('#reqMaritalStatusSelect ').val(data.reqMaritalStatus);
+                        $('#reqCityText ').val(data.city);
+                        $('#reqNationalitySelect ').val(data.reqNationality);
+                        $('#reqJobText ').val(data.job);
+                        $('#reqQualificationSelect ').val(data.reqQualification);
+                        $('#reqIncomeText ').val(data.income);
+
+
+
+                }
+                
+            });
+        }
+    </script>
+
+
+
+}
+

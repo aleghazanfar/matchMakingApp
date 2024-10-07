@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+<div>
+    @await Html.PartialAsync("_ViewAll")
+</div>
+
+
+@section Scripts{
+ @*   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>*@
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+
+    <script>
+
+
+        $(document).ready(function() {
+            debugger
+            //$('#memberListTable').DataTable().clear();
+            //$('#memberListTable').DataTable().destroy();
+            table = new $('#memberListTable').DataTable(
+                {
+                    ajax: {
+                        url: "/Member/GetMembersList",
+                        type: "POST",
+                    },
+                    search: {
+                        return: true
+                    },
+                    processing: false,
+                    scrollX: true,
+                    serverSide: true,
+                    filter: true,
+                     columnDefs: [{
+                        "defaultContent": "-",
+                        "targets": "_all"
+                    }],
+                    columns: [
+
+                        { data: "id" },
+                        { data: "parantage"},
+                        {
+                            data: "gender",
+                            render: function(data, type) {
+                                if (type === 'display') {
+                                    let vtype = '';
+                                    switch (data) {
+                                        case 'Male':
+                                            vtype = 'bg-success';
+                                            break;
+                                        case 'Female':
+                                            vtype = 'bg-danger';
+                                            break;
+                                    }
+                                    return `<span class="badge ${vtype} ">${data}</span>`;
+                                }
+                                return data;
+                            }
+                        },
+                        { data: "jobPosition", name: "jobPosition" },
+
+                        {
+                            data: 'id', name: 'action',
+                            render: function(data) {
+                                return `<a href="/Membership/AddorEdit?vId=${data}" class="btn btn-warning btn-sm"><i class="fa fa-pen"></i> Edit</a> | <a href="/Membership/AddFinance/${data}" class="btn btn-secondary btn-sm"><i class="fa fa-credit-card"></i> Finance</a> `;
+
+
+                            }
+
+                        },
+
+                    ]
+
+
+                }
+            );
+
+        });
+    </script>
+
+
+}

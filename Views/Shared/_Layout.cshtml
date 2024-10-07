@@ -8,7 +8,10 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    @*  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <link rel="stylesheet" href="../../plugins/toastr/toastr.css" />
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
@@ -16,7 +19,6 @@
     <link rel="stylesheet" href="../../plugins/select2/css/select2.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="~/css/spin.css" />
-
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -73,13 +75,13 @@
                             <a class="nav-link mr-2" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-tachometer-alt"></i> DashBoard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mr-2" asp-area="" asp-controller="Member" asp-action="UpSert"><i class="fas fa-plus"></i> Members</a>
+                            <a class="nav-link mr-2" asp-area="" asp-controller="Member" asp-action="Index"><i class="fa fa-home"></i> Home</a>
                         </li>
-                         <li class="nav-item">
-                            <a class="nav-link mr-2" asp-area="" asp-controller="Member" asp-action="NewMemberInsert"><i class="fas fa-plus"></i> New Members</a>
-                        </li>
+                      @*  <li class="nav-item">
+                            <a class="nav-link mr-2" asp-area="" asp-controller="Member" asp-action="Profile"><i class="fas fa-person"></i> Profile</a>
+                        </li>*@
                         <li class="nav-item">
-                            <a class="nav-link mr-2" asp-area="" asp-controller="LookUp" asp-action="Index"><i class="fas fa-plus"></i> Settings</a>
+                            <a class="nav-link mr-2" asp-area="" asp-controller="LookUp" asp-action="Index"><i class="fa fa-gears"></i> Settings</a>
                         </li>
 
                         @*<li class="nav-item">
@@ -160,6 +162,7 @@
         <div class="content-wrapper">
             <!-- Main content -->
             <section class="content">
+
                 @RenderBody()
 
 
@@ -194,12 +197,9 @@
 
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js"></script>
-    @*    <script src="../../lib/datatables/js/jquery.dataTables.min.js"></script>*@
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="../../js/jQueryCRUDjs.js" asp-append-version="true"></script>
     <script src="../../plugins/toastr/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../../plugins/select2/js/select2.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
     <!-- AdminLTE for demo purposes -->
